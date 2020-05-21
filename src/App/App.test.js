@@ -6,7 +6,7 @@ import "@testing-library/jest-dom";
 describe('App', () => {
     
     it('should allow a user to create a new reservation and then display the correct info in the reservations area', () => {
-        const { getByText, getByPlaceholderText, getByDisplayValue } = render(<App />)
+        const { getByText, getByPlaceholderText } = render(<App />)
 
         const nameInput = getByPlaceholderText('your name')
         const dateInput = getByPlaceholderText('date of reservation')
