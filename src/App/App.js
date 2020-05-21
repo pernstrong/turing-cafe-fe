@@ -52,6 +52,15 @@ class App extends Component {
     console.log(id)
     const remainingReservations = this.state.reservations.filter(reservation => reservation.id !== id)
     this.setState({reservations: remainingReservations})
+    this.deleteResoFromApi(id)
+  }
+
+  deleteResoFromApi = id => {
+    fetch(`http://localhost:3001/api/v1/reservations/${id}`, {
+      method: 'DELETE'
+    })
+    .then(response => response.json())
+    .catch(err => console.error(err))
   }
 
 
