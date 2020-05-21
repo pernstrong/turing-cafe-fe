@@ -3,6 +3,7 @@ import './App.css';
 
 import ReservationsContainer from "../ReservationsContainer/ReservationsContainer"
 import Form from "../Form/Form"
+import { getReservations, postReservation, deleteReservation } from "../apiCalls/apiCalls"
 
 class App extends Component {
   constructor() {
@@ -13,8 +14,7 @@ class App extends Component {
   }
 
   componentDidMount = async () => {
-    const response = await fetch('http://localhost:3001/api/v1/reservations')
-    const reservations = await response.json()
+    const reservations = await getReservations()
     this.setState({ reservations })
   }
 
@@ -30,39 +30,23 @@ class App extends Component {
     this.postNewReservation(newReservation)
   }
 
-  postNewReservation = ({ name, date, time, number}) => {
-    console.log(name, date, time, number)
-    fetch('http://localhost:3001/api/v1/reservations', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        name,
-        date,
-        time,
-        number
-      })
-    })
+  postNewReservation = async ({ name, date, time, number}) => {
+    postReservation(name, date, time, number)
     .then(response => response.json())
     .catch(err => console.error(err))
   }
 
+  deleteResoFromApi = id => {
+    deleteReservation(id)
+    .then(response => response.json())
+    .catch(err => console.error(err))
+  }
+  
   cancelReservation = id => {
-    console.log(id)
     const remainingReservations = this.state.reservations.filter(reservation => reservation.id !== id)
     this.setState({reservations: remainingReservations})
     this.deleteResoFromApi(id)
   }
-
-  deleteResoFromApi = id => {
-    fetch(`http://localhost:3001/api/v1/reservations/${id}`, {
-      method: 'DELETE'
-    })
-    .then(response => response.json())
-    .catch(err => console.error(err))
-  }
-
 
   render() {
     return (
