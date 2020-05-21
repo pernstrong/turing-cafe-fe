@@ -1,0 +1,23 @@
+form {
+    margin-bottom: 5%;
+}
+
+input {
+    margin: 0 2%; 
+    font-size: 2vh;
+}
+
+button {
+    color: #fff;
+    background-color: teal;
+    font-size: 2vh;
+    padding: 5px;
+    border-radius: 10px;
+    border: 2px solid #fff;
+}
+
+.error {
+    color: #fff;
+    background-color: red;
+    font-size: 3vh;
+}

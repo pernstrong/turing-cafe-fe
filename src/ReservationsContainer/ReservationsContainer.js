@@ -1,9 +1,10 @@
 import React from 'react'
-import ReservationCard from "../ReservationCard/ReservationCard"
+import './ReservationsContainer.css'
+import ReservationCard from '../ReservationCard/ReservationCard'
 
 const ReservationsContainer = ({ reservations }) => {
     const allReservationCards = reservations.map(reservation => {
-        return <ReservationCard {...reservation} />
+        return <ReservationCard {...reservation} key={reservation.id} />
     })
 
     return (
