@@ -2,9 +2,11 @@ import React from 'react'
 import './ReservationsContainer.css'
 import ReservationCard from '../ReservationCard/ReservationCard'
 
-const ReservationsContainer = ({ reservations }) => {
+const ReservationsContainer = props => {
+    const { reservations } = props
+    
     const allReservationCards = reservations.map(reservation => {
-        return <ReservationCard {...reservation} key={reservation.id} />
+        return <ReservationCard {...reservation} key={reservation.id} cancelReservation={props.cancelReservation} />
     })
 
     return (

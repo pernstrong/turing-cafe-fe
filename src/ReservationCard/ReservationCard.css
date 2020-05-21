@@ -5,3 +5,7 @@
     border-radius: 10px;
     color: teal;
 }
+
+.reservation-card button {
+    padding: 2%;
+}
