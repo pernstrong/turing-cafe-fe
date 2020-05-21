@@ -19,6 +19,7 @@ export const postReservation = (name, date, time, number) => {
     })
 }
 
+// the delete works but only after the page is refreshed, if you enter a reso and immediately try to cancel it give s a 404 error...I wonder why that is? 
 export const deleteReservation = id => {
     return fetch(`http://localhost:3001/api/v1/reservations/${id}`, {
         method: 'DELETE'

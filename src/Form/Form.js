@@ -45,7 +45,6 @@ class Form extends React.Component {
         })
     }
 
-// stick with form or change to section with trouble! preventdefualt??
     render() {
 
         return(

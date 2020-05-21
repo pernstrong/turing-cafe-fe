@@ -1,9 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Pacifico');
 
 .App {
-  /* display: flex; */
-  /* flex-direction: column; */
-  /* align-items: center; */
   background-image: url('../assets/cafe-img.jpeg');
   width: 100%;
   height: 100vh;
